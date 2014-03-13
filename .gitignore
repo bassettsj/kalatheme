@@ -8,3 +8,8 @@
 ._*
 .DS_Store
 .settings/*
+
+
+# Bower Components
+# Shouldn't be added to the Drupal.org repository
+bower_components

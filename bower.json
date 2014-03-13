@@ -19,14 +19,17 @@
   "license": "GNU General Public License, version 2",
   "homepage": "https://drupal.org/project/kalatheme",
   "repository": {
-    "type" : "git",
-    "url" : "http://git.drupal.org/project/kalatheme.git"
-    },
+    "type": "git",
+    "url": "http://git.drupal.org/project/kalatheme.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
 }
