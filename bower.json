@@ -1,6 +1,6 @@
 {
   "name": "kalatheme",
-  "version": "7.x-3.x-dev",
+  "version": "3.0.3",
   "authors": [
     "pirog <pirog@1258944.no-reply.drupal.org>",
     "areynolds <areynolds@1189376.no-reply.drupal.org>",
@@ -16,7 +16,7 @@
     "drupal",
     "panopoly"
   ],
-  "license": "GNU General Public License, version 2",
+  "license": "GPL-2.0",
   "homepage": "https://drupal.org/project/kalatheme",
   "repository": {
     "type": "git",
@@ -30,6 +30,11 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.1.1"
+    "bootstrap": "~3.1.1",
+    "bootstrap-accessibility-plugin": "git@github.com:paypal/bootstrap-accessibility-plugin.git",
+    "respondJS": "~1.4.2",
+    "modernizr": "~2.7.2",
+    "bootstrap-sass": "twbs/bootstrap-sass#~3.1.1",
+    "boostrap-sass": "~3.1.1"
   }
 }
