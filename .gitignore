@@ -9,6 +9,10 @@
 .DS_Store
 .settings/*
 
+
 # Node modules for Grunt Tasks
 node_modules
 
+# Bower Components
+# Shouldn't be added to the Drupal.org repository
+bower_components

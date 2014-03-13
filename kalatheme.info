@@ -5,8 +5,10 @@ php = 5.3
 
 regions[content] = content
 
-stylesheets[screen][] = css/tweaks.css
-stylesheets[screen][] = css/panopoly.css
+stylesheets[screen][] = dist/css/kalatheme.min.css
+
+# Scripts could be built using the
+#scripts[] = dis/js/kalatheme.min.js
 
 features[] = logo
 features[] = name
