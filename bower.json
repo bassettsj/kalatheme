@@ -30,11 +30,10 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.1.1",
+    "bootstrap-sass": "twbs/bootstrap-sass#~3.1.1",
+    "boostrap-sass": "~3.1.1",
     "bootstrap-accessibility-plugin": "git@github.com:paypal/bootstrap-accessibility-plugin.git",
     "respondJS": "~1.4.2",
-    "modernizr": "~2.7.2",
-    "bootstrap-sass": "twbs/bootstrap-sass#~3.1.1",
-    "boostrap-sass": "~3.1.1"
+    "modernizr": "~2.7.2"
   }
 }
