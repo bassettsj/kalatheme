@@ -32,6 +32,7 @@
   "dependencies": {
     "bootstrap-sass": "twbs/bootstrap-sass#~3.1.1",
     "bootstrap-accessibility-plugin": "git@github.com:paypal/bootstrap-accessibility-plugin.git",
-    "respondJS": "~1.4.2"
+    "respondJS": "~1.4.2",
+    "bootstrap": "~3.1.1"
   }
 }
