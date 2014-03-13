@@ -1,0 +1,31 @@
+/**
+ * Date/Time Styling
+ */
+#node-edit .container-inline-date>.form-item {
+  border: 0;
+  margin: 0;
+}
+
+#node-edit .container-inline-date .date-padding {
+  float: none;
+  padding: 0;
+}
+
+#node-edit .container-inline-date .form-item-date-time,#node-edit .container-inline-date .form-item-date-date
+  {
+  padding-bottom: 1em;
+}
+
+#node-edit .container-inline-date .form-item-date-time {
+  clear: left;
+}
+
+#node-edit .form-item-date-time label,#node-edit .form-item-date-date label,#node-edit .form-item-name label
+  {
+  width: 49px;
+}
+
+#node-edit .container-inline-date .form-item-date-date .description,#node-edit .container-inline-date .form-item-date-time .description
+  {
+  display: none;
+}

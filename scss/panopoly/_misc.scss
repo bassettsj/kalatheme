@@ -1,0 +1,23 @@
+/**
+ * Misc
+ */
+#active-vertical-tab {
+  height: 1px;
+  /* fixes a small issue with vertical tabs on the administrative pages */
+  overflow: hidden;
+}
+
+#views-ajax-body form {
+  background-color: #fff;
+  /* makes sure that our background color is white when ajaxing in views */
+}
+
+.tabledrag-toggle-weight-wrapper {
+  display: none;
+  /* removes the "show row weights" option. has accessibility considerations. */
+}
+
+.form-item-uid {
+  position: relative;
+  /* fixes positioning for auto complete items in firefox - http://drupal.org/node/1218684 */
+}

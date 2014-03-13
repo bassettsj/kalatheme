@@ -1,0 +1,26 @@
+/**
+ * Pathauto styling
+ */
+#node-edit .form-item-path-alias label {
+  float: left;
+  font-weight: 400;
+}
+
+#node-edit .form-item-path-alias {
+  font-size: .8em;
+  margin-bottom: .25em;
+  margin-top: .25em;
+  min-height: 1.2em;
+  padding: 0;
+  vertical-align: middle;
+}
+
+#node-edit .form-item-path-alias input {
+  margin-left: 4px;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+#node-edit .form-item-path-pathauto {
+  display: none;
+}

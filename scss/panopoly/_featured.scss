@@ -1,0 +1,81 @@
+/**
+ * Featured Category Styling
+ */
+#node-edit .field-name-field-featured-categories>.form-item-field-featured-categories-und>label
+  {
+  display: none;
+}
+
+/**
+ * Featured Image Styling
+ */
+#node-edit .pane-node-field-featured-image h2 {
+  margin-top: 5px;
+}
+
+#node-edit .form-item-field-featured-image-und-0-alt label {
+  float: left;
+  font-weight: normal;
+  margin: 4px 10px 0 0;
+}
+
+#node-edit #edit-field-featured-image-und-0-alt {
+  width: 180px;
+}
+
+#node-edit #edit-field-featured-image .form-item-field-featured-image-und-0>label,#node-edit .form-item-field-featured-image-und-0-alt .description
+  {
+  display: none;
+}
+
+#node-edit .field-name-field-featured-image .image-preview img {
+  height: auto;
+  margin-bottom: 0;
+  /* Overrides Bartik's default margin, which is too much */
+  max-width: 100%;
+}
+
+#node-edit .field-name-field-featured-image div.image-widget-data {
+  float: none;
+}
+
+#node-edit .field-name-field-featured-image .image-widget-data img {
+  margin-bottom: 0;
+}
+
+#node-edit .field-name-field-featured-image .image-widget-data span.file
+  {
+  float: left;
+  margin-right: 5%;
+  margin-top: 5px;
+  width: 65%;
+}
+
+#node-edit .field-name-field-featured-image .image-widget-data img {
+  margin-bottom: 0;
+}
+
+#node-edit .field-name-field-featured-image .image-widget-data span.file-size
+  {
+  display: none;
+}
+
+#node-edit .field-name-field-featured-image .image-widget-data input#edit-field-featured-image-und-0-remove-button
+  {
+  max-width: 28%;
+}
+
+#node-edit .field-name-field-featured-image .image-widget-data div.form-item
+  {
+  clear: both;
+  margin-bottom: .25em;
+  margin-top: .75em;
+}
+
+#node-edit .field-name-field-featured-image .image-preview {
+  width: 100%;
+}
+
+#node-edit .form-item-field-featured-image-und-0>label {
+  display: none;
+}

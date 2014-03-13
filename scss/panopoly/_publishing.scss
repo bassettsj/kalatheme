@@ -1,0 +1,21 @@
+/**
+ * Publishing styling
+ */
+#node-edit .form-item-machine-name label,#node-edit .form-item-date label,#node-edit .form-item-name label
+  {
+  float: left;
+  font-weight: 400;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+/**
+ * Menu Styling
+ */
+#node-edit .pane-node-form-menu .form-item-menu-parent label,#node-edit .pane-node-form-menu .form-item-menu-link-title label
+  {
+  float: left;
+  font-weight: normal;
+  margin-right: 4px;
+  width: 49px;
+}

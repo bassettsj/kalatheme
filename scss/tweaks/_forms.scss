@@ -1,0 +1,51 @@
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  margin-bottom: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin: 0;
+  margin-bottom: 2px;
+}
+
+#node-edit #edit-title {
+  height: auto;
+}
+
+
+legend {
+  border-bottom: 0;
+}
+
+
+
+html.js fieldset.collapsed {
+  padding: 5px;
+  margin-bottom: 25px;
+}
+
+.collapse-processed .fieldset-wrapper {
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+.form-actions .btn,
+.form-submit {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+@media (min-width: 480px) {
+  .form-control {
+    width: auto;
+  }
+}
+
+label.option {
+  display: inline;
+  font-weight: normal;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  margin-left: 0px;
+}

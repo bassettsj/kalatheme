@@ -1,0 +1,35 @@
+/**
+ * Media Styles
+ */
+#media-browser-page {
+  background: transparent;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+#media-browser-page .content {
+  margin-top: 0px;
+}
+
+ul#media-browser-library-list {
+  margin: 0;
+}
+
+#media-browser-tabset .views-exposed-form {
+  margin-bottom: 1em;
+}
+
+#media-browser-tabset .views-exposed-form .views-exposed-widget {
+  float: left;
+  margin-right: 15px;
+}
+
+#media-browser-tabset .views-exposed-form div.form-item {
+  margin: .25em 0;
+}
+
+#media-browser-tabset .view .item-list .pager li {
+  padding: 0;
+}
