@@ -8,7 +8,7 @@ regions[content] = content
 stylesheets[screen][] = dist/css/kalatheme.min.css
 
 # Scripts could be built using the
-#scripts[] = dis/js/kalatheme.min.js
+#scripts[] = dist/js/kalatheme.min.js
 
 features[] = logo
 features[] = name
