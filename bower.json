@@ -1,0 +1,32 @@
+{
+  "name": "kalatheme",
+  "version": "7.x-3.x-dev",
+  "authors": [
+    "pirog <pirog@1258944.no-reply.drupal.org>",
+    "areynolds <areynolds@1189376.no-reply.drupal.org>",
+    "whastings <whastings@2368318.no-reply.drupal.org>",
+    "malberts <malberts@436324.no-reply.drupal.org>",
+    "Andrew_Mallis <Andrew_Mallis@72871.no-reply.drupal.org>",
+    "sjbassett <sjbassett@1961556.no-reply.drupal.org>"
+  ],
+  "description": "Kalatheme is designed for people who want to get to work quickly so they can make things happen.",
+  "main": "template.php",
+  "keywords": [
+    "bootstrap",
+    "drupal",
+    "panopoly"
+  ],
+  "license": "GNU General Public License, version 2",
+  "homepage": "https://drupal.org/project/kalatheme",
+  "repository": {
+    "type" : "git",
+    "url" : "http://git.drupal.org/project/kalatheme.git"
+    },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
