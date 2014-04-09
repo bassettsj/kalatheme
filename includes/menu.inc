@@ -203,11 +203,12 @@ function kalatheme_menu_local_task($variables) {
     $classes[] = 'dropdown';
     $link['localized_options']['attributes']['class'][] = 'dropdown-toggle';
     $link['localized_options']['attributes']['data-toggle'][] = 'dropdown';
+    $link['localized_options']['attributes']['role'] = 'button';
     $link['href'] = '#';
     $link_text .= ' <b class="caret" aria-hidden="true"></b>';
-    $output = '<li class="' . implode(' ', $classes) . '">';
+    $output = '<li class="' . implode(' ', $classes) . ' role="presentation">';
     $output .= l($link_text, $link['href'], $link['localized_options']);
-    $output .= '<ul class="dropdown-menu">';
+    $output .= '<ul class="dropdown-menu" role="menu">';
     $output .= drupal_render($children);
     $output .= '</ul>';
     $output .= '</li>';
@@ -228,7 +229,7 @@ function kalatheme_menu_local_actions($variables) {
 
   // Render the dropdown.
   $output = $container_attributes ?  '<li' . $container_attributes . '>' : '<li>';
-  $output .= $toggle_attributes ?  '<a' . $toggle_attributes . '><i class="glyphicon glyphicon-wrench"></i> ' . t('Actions') . '<b class="caret"></b></a>' : '<a>' . t('Actions') . '<b class="caret"></b></a>';
+  $output .= $toggle_attributes ?  '<a' . $toggle_attributes . '><span class="glyphicon glyphicon-wrench fa fa-wrench" aria-hidden="true"></span> ' . t('Actions') . '<b class="caret"></b></a>' : '<a>' . t('Actions') . '<b class="caret"></b></a>';
   $output .= $content_attributes ? '<ul' . $content_attributes . '>' : '<ul>';
   $output .= drupal_render($variables['menu_actions']);
   $output .= '</ul>';
