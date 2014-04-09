@@ -11,6 +11,7 @@ function kalatheme_menu_tree($variables) {
   return '<ul class="menu clearfix" role="menu">' . $variables['tree'] . '</ul>';
 }
 
+
 /**
  * Implements theme_links__system_main_menu.
  */
@@ -40,7 +41,7 @@ function kalatheme_links__system_main_menu($variables) {
         $heading = array(
           'text' => $heading,
           // Set the default level of the heading.
-          'level' => 'h2',
+          'level' => 'h3',
         );
       }
       $output .= '<' . $heading['level'];
@@ -133,7 +134,8 @@ function kalatheme_links__system_main_menu($variables) {
           'attributes' => array(
             'class' => array('dropdown-menu'),
             'role' => 'menu',
-            'aria-labelledby' => $dropdown_id
+            'aria-labelledby' => $dropdown_id,
+            'aria-expanded' => 'false'
           ),
         ));
         $clearfix = "<div class='clearfix visible-xs'></div>";
@@ -158,7 +160,7 @@ function kalatheme_menu_local_tasks(&$variables) {
   $output = '';
 
   if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+    $variables['primary']['#prefix'] = '<h3 class="sr-only">' . t('Primary tabs') . '</h3>';
     $variables['primary']['#prefix'] = '<ul class="nav nav-pills">';
     $variables['primary']['#suffix'] = '</ul>';
     if (!empty($variables['secondary'])) {
@@ -183,7 +185,7 @@ function kalatheme_menu_local_task($variables) {
 
   if (!empty($variables['element']['#active'])) {
     // Add text to indicate active tab for non-visual users.
-    $active = '<span class="element-invisible">' . t('(active tab)') . '</span>';
+    $active = '<span class="sr-only">' . t('(active tab)') . '</span>';
 
     // If the link does not contain HTML already, check_plain() it now.
     // After we set 'html'=TRUE the link will not be sanitized by l().
@@ -202,7 +204,7 @@ function kalatheme_menu_local_task($variables) {
     $link['localized_options']['attributes']['class'][] = 'dropdown-toggle';
     $link['localized_options']['attributes']['data-toggle'][] = 'dropdown';
     $link['href'] = '#';
-    $link_text .= ' <b class="caret"></b>';
+    $link_text .= ' <b class="caret" aria-hidden="true"></b>';
     $output = '<li class="' . implode(' ', $classes) . '">';
     $output .= l($link_text, $link['href'], $link['localized_options']);
     $output .= '<ul class="dropdown-menu">';
