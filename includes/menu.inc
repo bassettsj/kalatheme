@@ -8,7 +8,7 @@
  * Implements theme_menu_tree().
  */
 function kalatheme_menu_tree($variables) {
-  return '<ul class="menu clearfix">' . $variables['tree'] . '</ul>';
+  return '<ul class="menu clearfix" role="menu">' . $variables['tree'] . '</ul>';
 }
 
 /**
@@ -17,6 +17,11 @@ function kalatheme_menu_tree($variables) {
 function kalatheme_links__system_main_menu($variables) {
   $links = $variables['links'];
   $attributes = $variables['attributes'];
+
+  // Navbar best described by menubar, only add attribute if role="menu" isn't set
+  if(!isset($attributes['role'])){
+    $attributes['role'] = 'menubar';
+  }
   $heading = $variables['heading'];
   unset($links['#sorted']);
   unset($links['#theme_wrappers']);
@@ -67,6 +72,8 @@ function kalatheme_links__system_main_menu($variables) {
       if ( isset($link['#localized_options']['attributes'])){
         $link['#options']['attributes'] += $link['#localized_options']['attributes'];
       }
+      // lastly add in the role=menuitem for links
+      $link['#options']['attributes']['role'] = 'menuitem';
       // Add first/last/active classes to help out themers.
       if ($i == 1) {
         $class[] = 'first';
@@ -95,7 +102,7 @@ function kalatheme_links__system_main_menu($variables) {
         $class[] = 'dropdown';
         $class[] = 'clearfix';
       }
-      $output .= '<li' . drupal_attributes(array('class' => $class)) . '>';
+      $output .= '<li' . drupal_attributes(array('class' => $class, 'role' =>'presentation')) . '>';
 
       if (isset($link['#href'])) {
         // Pass in $link with the path and the options set to the l() function
@@ -117,7 +124,10 @@ function kalatheme_links__system_main_menu($variables) {
       // If link has child items, print a toggle and dropdown menu.
       if (!empty($link['#below'])) {
         $dropdown_id = 'main-menu-dropdown-' . $i;
-        $output .= '<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="' . $dropdown_id. '"><span class="caret"></span></a>';
+        $output .= '<a href="#"  role="button" class="dropdown-toggle" data-toggle="dropdown" id="' . $dropdown_id. '" aria-haspopup="true">';
+        //Add in text to be available for AT
+        $output .= '<span class="sr-only">Toggle submenu for ' . $link['#title'] . '</span><span class="caret" aria-hidden="true"></span></a>';
+
         $output .= theme('links__system_main_menu', array(
           'links' => $link['#below'],
           'attributes' => array(
@@ -231,7 +241,6 @@ function kalatheme_menu_local_actions($variables) {
 function kalatheme_menu_local_action($variables) {
   $link = $variables['element']['#link'];
 
-  $output = '<li>';
   if (isset($link['href'])) {
     $output .= l($link['title'], $link['href'], isset($link['localized_options']) ? $link['localized_options'] : array());
   }
@@ -281,4 +290,3 @@ function _kalatheme_associate_parent_tasks($variables) {
 
   return $variables;
 }
-
