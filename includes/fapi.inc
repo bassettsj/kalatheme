@@ -191,7 +191,7 @@ function kalatheme_form_element_label($variables) {
     $attributes['class'] = 'option';
   }
   elseif ($element['#title_display'] == 'invisible') {
-    $attributes['class'] = 'element-invisible';
+    $attributes['class'] = 'sr-only';
   }
 
   if (!empty($element['#id'])) {
