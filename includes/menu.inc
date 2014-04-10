@@ -146,7 +146,7 @@ function kalatheme_links__system_main_menu($variables) {
         $dropdown_id = 'main-menu-dropdown-' . $i;
         $output .= '<a href="#"  role="button" class="dropdown-toggle" data-toggle="dropdown" id="' . $dropdown_id. '" aria-haspopup="true">';
         //Add in text to be available for AT
-        $output .= '<span class="sr-only">Toggle submenu for ' . $link['#title'] . '</span><span class="caret" aria-hidden="true"></span></a>';
+        $output .= '<span class="element-invisible">Toggle submenu for ' . $link['#title'] . '</span><span class="caret" aria-hidden="true"></span></a>';
         $output .= theme('links__system_main_menu', array(
           'links' => $link['#below'],
           'attributes' => array(
@@ -178,7 +178,7 @@ function kalatheme_menu_local_tasks(&$variables) {
   $output = '';
 
   if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h3 class="sr-only">' . t('Primary tabs') . '</h3>';
+    $variables['primary']['#prefix'] = '<h3 class="element-invisible">' . t('Primary tabs') . '</h3>';
     $variables['primary']['#prefix'] = '<ul class="nav nav-pills" role="menu">';
     $variables['primary']['#suffix'] = '</ul>';
     if (!empty($variables['secondary'])) {
@@ -203,7 +203,7 @@ function kalatheme_menu_local_task($variables) {
 
   if (!empty($variables['element']['#active'])) {
     // Add text to indicate active tab for non-visual users.
-    $active = '<span class="sr-only">' . t('(active tab)') . '</span>';
+    $active = '<span class="element-invisible">' . t('(active tab)') . '</span>';
 
     // If the link does not contain HTML already, check_plain() it now.
     // After we set 'html'=TRUE the link will not be sanitized by l().
@@ -251,7 +251,7 @@ function kalatheme_menu_local_actions($variables) {
   // Render the dropdown.
   $output = $container_attributes ?  '<li' . $container_attributes . '>' : '<li>';
   $output .= $toggle_attributes ?  '<a role="button"' . $toggle_attributes . '><span class="glyphicon glyphicon-wrench fa fa-wrench" aria-hidden="true"></span> ' . t('Actions') . '<span class="caret" aria-hidden="true"></span></a>' : '<a role="button">' . t('Actions') . '<span class="caret" aria-hidden="true"></span></a>';
-  $output .= $content_attributes ? '<ul' . $content_attributes . '>' : '<ul>';
+  $output .= $content_attributes ? '<ul' . $content_attributes . ' role="menu">' : '<ul role="menu">';
   $output .= drupal_render($variables['menu_actions']);
   $output .= '</ul>';
   $output .= '</li>';
