@@ -268,10 +268,14 @@ function kalatheme_menu_local_action($variables) {
   $output = "<li role=\"presenation\">";
   if (isset($link['href'])) {
     $options = isset($link['localized_options']) ? $link['localized_options'] : array();
-
     // Adding ARIA Attributes for the link as a menuitem
     // @link http://www.w3.org/TR/wai-aria/roles#menuitem
-    $options['attributes'] = isset($options['attributes']) ? $options['attributes'] += array('role'=>'menuitem') : array('role' => 'menuitem');
+    $a11y_attr =  array(
+      'role'=>'menuitem',
+      'tab-index' => '-1'
+    );
+    $options['attributes'] = isset($options['attributes']) ? $options['attributes'] += $a11y_attr : $a11y_attr;
+
     $output .= l($link['title'], $link['href'], $options);
   }
   elseif (!empty($link['localized_options']['html'])) {
