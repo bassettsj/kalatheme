@@ -561,7 +561,6 @@ function kalatheme_pager($variables) {
   $li_previous = theme('pager_previous', array('text' => (isset($tags[1]) ? $tags[1] : t('‹ previous')), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
   $li_next = theme('pager_next', array('text' => (isset($tags[3]) ? $tags[3] : t('next ›')), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
   $li_last = theme('pager_last', array('text' => (isset($tags[4]) ? $tags[4] : t('last »')), 'element' => $element, 'parameters' => $parameters));
-
   if ($pager_total[$element] > 1) {
     if ($li_first) {
       $items[] = array(
@@ -580,8 +579,8 @@ function kalatheme_pager($variables) {
     if ($i != $pager_max) {
       if ($i > 1) {
         $items[] = array(
-          'class' => array('pager-ellipsis'),
-          'data' => '…',
+          'class' => array('pager-ellipsis', 'disabled'),
+          'data' => '<span>…<span>',
         );
       }
       // Now generate the actual pager piece.
@@ -595,7 +594,7 @@ function kalatheme_pager($variables) {
         if ($i == $pager_current) {
           $items[] = array(
             'class' => array('pager-current', 'active'),
-            'data' => '<span>' . $i . '</span>',
+            'data' => '<span>' . $i . ' <span class="sr-only">(current)</span></span>',
           );
         }
         if ($i > $pager_current) {
@@ -607,8 +606,8 @@ function kalatheme_pager($variables) {
       }
       if ($i < $pager_max) {
         $items[] = array(
-          'class' => array('pager-ellipsis'),
-          'data' => '…',
+          'class' => array('pager-ellipsis','disabled'),
+          'data' => '<span>&#x2026;</span>',
         );
       }
     }
