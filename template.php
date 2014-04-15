@@ -37,10 +37,14 @@ require_once dirname(__FILE__) . '/includes/views.inc';
  * Implements hook_theme().
  */
 function kalatheme_theme($existing, $type, $theme, $path) {
+  drupal_get_path('theme', 'kalatheme');
   return array(
     'menu_local_actions' => array(
       'variables' => array('menu_actions' => NULL, 'attributes' => NULL),
       'file' => 'includes/menu.inc',
+    ),
+    'navbar_fixed_top' => array(
+      'template' => 'templates/core/navbar-fixed-top',
     ),
   );
 }
