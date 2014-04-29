@@ -1,6 +1,71 @@
-/*! kalatheme - v3.0.0+dev - 2014-04-28
+/*! kalatheme - v3.0.0+dev - 2014-04-29
 * https://drupal.org/project/kalatheme
 * Copyright (c) 2014 ; Licensed  */
+/**
+* @file
+* Overrides for core AJAX functionality.
+* See misc/ajax.js
+*
+* Thanks bootstrap theme for insperation
+* @link https://drupal.org/project/bootstrap
+ */
+
+(function() {
+  (function($) {
+    var _base;
+    if ((_base = window.Drupal).ajax == null) {
+      _base.ajax = function() {};
+    }
+    return Drupal.ajax.prototype.beforeSend = function(xmlhttprequest, options) {
+      var iconClasses, markup, progressBar, v;
+      if (this.form) {
+        options.extraData = options.extraData || {};
+        options.extraData.ajax_iframe_upload = "1";
+        v = $.fieldValue(this.element);
+        if (v !== null) {
+          options.extraData[this.element.name] = v;
+        }
+      }
+      $(this.element).addClass("progress-disabled").attr("disabled", true);
+      if (this.progress.type === "bar") {
+        progressBar = new Drupal.progressBar("ajax-progress-" + this.element.id, eval_(this.progress.update_callback), this.progress.method, eval_(this.progress.error_callback));
+        if (this.progress.message) {
+          progressBar.setProgress(-1, this.progress.message);
+        }
+        if (this.progress.url) {
+          progressBar.startMonitoring(this.progress.url, this.progress.interval || 1500);
+        }
+        this.progress.element = $(progressBar.element).addClass("ajax-progress ajax-progress-bar");
+        this.progress.object = progressBar;
+        return $(this.element).after(this.progress.element);
+      } else if (this.progress.type === "throbber") {
+        iconClasses = "glyphicon glyphicon-refresh glyphicon-spin";
+        if (Drupal.settings.kalatheme.fontawesome) {
+          iconClasses === "fa fa-refresh fa-spin";
+        }
+        markup = "<div class=\"ajax-progress ajax-progress-throbber\">";
+        markup += "<span class=\"" + iconClasses + "\"></span><span class=\"sr-only\">Loading</span></div>";
+        this.progress.element = $(markup);
+        if ($(this.element).is("input")) {
+          if (this.progress.message) {
+            $(".throbber", this.progress.element).after("<div class=\"message\">" + this.progress.message + "</div>");
+          }
+          return $(this.element).after(this.progress.element);
+        } else {
+          if (this.progress.message) {
+            $(".throbber", this.progress.element).append("<div class=\"message\">" + this.progress.message + "</div>");
+          }
+          return $(this.element).append(this.progress.element);
+        }
+      }
+    };
+  })(jQuery);
+
+}).call(this);
+
+//# sourceMappingURL=kalathemeAjax.js.map
+
+
 /**
 * @file
 * Overrides for CTools modal.
