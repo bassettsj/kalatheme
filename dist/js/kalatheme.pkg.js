@@ -196,7 +196,7 @@
       var $throbber, fontAwesome, iconSpin, throbbingClass;
       fontAwesome = Drupal.settings.kalatheme.fontawesome ? true : false;
       iconSpin = fontAwesome ? 'fa-spin' : 'glyphicon-spin';
-      $throbber = $(".fa-spin, .glyphicon-refresh, .autocomplete-throbber", $("#" + this.input.id).parent()).first();
+      $throbber = $(".fa-refresh, .glyphicon-refresh, .autocomplete-throbber", $("#" + this.input.id).parent()).first();
       throbbingClass = ($throbber.is(".autocomplete-throbber") ? "throbbing" : iconSpin);
       switch (status) {
         case "begin":

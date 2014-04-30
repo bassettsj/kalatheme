@@ -9,7 +9,6 @@
 (($) ->
 
   window.Drupal ?= {}
-
   ###
   Attaches the autocomplete behavior to all required fields.
   ###
@@ -117,7 +116,7 @@
   Drupal.jsAC::setStatus = (status) ->
     fontAwesome = if Drupal.settings.kalatheme.fontawesome then true else false
     iconSpin = if fontAwesome then 'fa-spin' else 'glyphicon-spin'
-    $throbber = $(".fa-spin, .glyphicon-refresh, .autocomplete-throbber", $("#" + @input.id).parent()).first()
+    $throbber = $(".fa-refresh, .glyphicon-refresh, .autocomplete-throbber", $("#" + @input.id).parent()).first()
     throbbingClass = (if $throbber.is(".autocomplete-throbber") then "throbbing" else iconSpin)
     switch status
       when "begin"
