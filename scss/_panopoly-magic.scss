@@ -10,7 +10,7 @@
 }
 
 @media only screen and (max-width: 480px) {
-  /* Hide IPE from mobile, since it doesn't really work anyway */
+  // Hide IPE from mobile, since it doesn't really work anyway
   #panels-ipe-control-container {
     display: none;
   }
@@ -18,10 +18,8 @@
 
 
 
-/**
- * Custom styling for Changing Layout Feature
-*/
-div.ctools-modal-content div.form-item-categories label {
+// Custom styling for Changing Layout Feature
+.ctools-modal-content .form-item-categories label {
   float: left;
   font-weight: normal;
   margin-top: 2px;
