@@ -89,7 +89,7 @@ function kalatheme_css_alter(&$css) {
   $excludes = array(
     drupal_get_path('module', 'panopoly_admin') . '/panopoly-admin.css',
     $panopoly_magic_path . '/css/panopoly-modal.css',
-    $panopoly_magic_path . '/css/panopoly-modal.css',
+    $panopoly_magic_path . '/css/panopoly-magic.css',
     'modules/system/system.menus.css'
   );
   $css = _kalatheme_remove_by_key($excludes, $css);
