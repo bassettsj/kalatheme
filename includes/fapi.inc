@@ -314,7 +314,7 @@ function kalatheme_textfield($variables){
 
     $icon = theme('font_icon',
       array(
-        'keys' => array( 'refresh', 'spin' ),
+        'keys' => array( 'refresh' ),
         'alt_text' => 'Loading'
       )
     );
