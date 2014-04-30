@@ -413,7 +413,7 @@ a#navbar-link-admin-apps.active:before {
 @media only screen and (max-width: 480px) {
   /* Hide IPE from mobile, since it doesn't really work anyway */
   #panels-ipe-control-container {
-    display: none !important; } }
+    display: none; } }
 /**
  * Custom styling for Changing Layout Feature
 */

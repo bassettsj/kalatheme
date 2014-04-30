@@ -8,13 +8,14 @@ module.exports =
     'css'
   ]
   js: [
-    'clean:temp'
+    'clean:tempjs'
     'coffeelint:theme'
     'coffee:theme'
     'concat:js'
     'uglify:js'
   ]
   tests: [
+    'curl-dir:drupaljs'
     'coffeelint:tests'
     'coffee:specs'
     'jasmine:specs'
@@ -25,6 +26,7 @@ module.exports =
   ]
   css: [
     'sass:dist'
+    'csscss:theme'
     'autoprefixer:theme'
     'cssmin:theme'
   ]
