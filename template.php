@@ -48,6 +48,14 @@ function kalatheme_theme($existing, $type, $theme, $path) {
     'navbar_and_header' => array(
       'template' => 'templates/core/navbar-and-header'
     ),
+    'font_icon' => array(
+      'variables' => array(
+        'keys' => array( 'flag' ),
+        'alt_text' => Null,
+        'attributes' => Null
+      ),
+      'file' => 'includes/utils.inc'
+    )
   );
 }
 /**

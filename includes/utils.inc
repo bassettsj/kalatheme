@@ -344,3 +344,31 @@ function kalatheme_lib_dir() {
   return is_dir('sites/all/libraries') ? 'sites/all/libraries' : 'sites/all';
 }
 
+
+/**
+ * Theme function for icon fonts.
+ */
+function kalatheme_font_icon($variables){
+  $attr = isset($variables['attributes']) ? $variables['attributes'] : array();
+  $attr += array('aria-hidden' => true);
+
+  $icon_font_prefix = 'glyicon-';
+
+  if( theme_get_settings('fontawesome') ){
+    $icon_font_prefix = 'fa-';
+    $attr += array('class'=> 'fa');
+  }
+  else{
+    $attr += array('class'=> 'glyphicon');
+  }
+
+  foreach($variables['keys'] as $class){
+    $attr['class'][] = $class;
+  }
+  $stub = '<span '. drupal_attributes($attr) . '></span>';
+  if(isset($variables['alt_text'])){
+    $stub .= '<span class="element-invisible">'.$variables['alt_text'].'</span>';
+  }
+  dpm($stub);
+  return $stub;
+}

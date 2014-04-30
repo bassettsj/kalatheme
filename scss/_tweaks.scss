@@ -173,6 +173,11 @@ ul.links {
   padding: 0;
   list-style: none outside none;
 }
+html.js {
+  input.form-autocomplete {
+    background-image: none;
+  }
+}
 
 form .form-actions .btn {
   margin-right: 10px;
@@ -211,7 +216,8 @@ html.js fieldset.collapsed {
 .panopoly-spotlight-label,
 .mceEditor,
 #pane-library table,
-.box-sizing-content-box {
+.box-sizing-content-box,
+.mceToolbar {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;

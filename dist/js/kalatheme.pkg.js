@@ -68,6 +68,155 @@
 
 /**
 * @file
+* Overrides for core autocomplete themeing.
+* See misc/autocomplete.js
+*
+* Thanks bootstrap theme for insperation
+* @link https://drupal.org/project/bootstrap
+ */
+
+(function() {
+  (function($) {
+    var _base;
+    if (window.Drupal == null) {
+      window.Drupal = {};
+    }
+
+    /*
+    Attaches the autocomplete behavior to all required fields.
+     */
+    Drupal.behaviors.autocomplete = {
+      attach: function(context, settings) {
+        var acdb;
+        acdb = [];
+        return $("input.autocomplete", context).once("autocomplete", function() {
+          var $input, uri;
+          uri = this.value;
+          if (!acdb[uri]) {
+            acdb[uri] = new Drupal.ACDB(uri);
+          }
+          $input = $("#" + this.id.substr(0, this.id.length - 13)).attr("autocomplete", "OFF").attr("aria-autocomplete", "list");
+          $($input[0].form).submit(Drupal.autocompleteSubmit);
+          $input.after($("<span class=\"element-invisible\" aria-live=\"assertive\"></span>").attr("id", $input.attr("id") + "-autocomplete-aria-live"));
+          $input.parent().parent().attr("role", "application");
+          return new Drupal.jsAC($input, acdb[uri]);
+        });
+      }
+    };
+
+    /*
+    Prevents the form from submitting if the suggestions popup is open
+    and closes the suggestions popup when doing so.
+     */
+    Drupal.autocompleteSubmit = function() {
+      return $(".form-autocomplete > .dropdown").each(function() {
+        return this.owner.hidePopup();
+      }).length === 0;
+    };
+    if ((_base = window.Drupal).jsAC == null) {
+      _base.jsAC = function() {};
+    }
+
+    /*
+    Highlights a suggestion.
+     */
+    Drupal.jsAC.prototype.highlight = function(node) {
+      if (this.selected) {
+        $(this.selected).removeClass("active");
+      }
+      $(node).addClass("active");
+      this.selected = node;
+      return $(this.ariaLive).html($(this.selected).html());
+    };
+
+    /*
+    Unhighlights a suggestion.
+     */
+    Drupal.jsAC.prototype.unhighlight = function(node) {
+      $(node).removeClass("active");
+      this.selected = false;
+      return $(this.ariaLive).empty();
+    };
+
+    /*
+    Positions the suggestions popup and starts a search.
+     */
+    Drupal.jsAC.prototype.populatePopup = function() {
+      var $input;
+      $input = $(this.input);
+      if (this.popup) {
+        $(this.popup).remove();
+      }
+      this.selected = false;
+      this.popup = $("<div class=\"dropdown\"></div>")[0];
+      this.popup.owner = this;
+      $input.parent().after(this.popup);
+      this.db.owner = this;
+      this.db.search(this.input.value);
+    };
+
+    /*
+    Fills the suggestion popup with any matches received.
+     */
+    Drupal.jsAC.prototype.found = function(matches) {
+      var ac, key, ul;
+      if (!this.input.value.length) {
+        return false;
+      }
+      ul = $("<ul class=\"dropdown-menu\" role=\"menu\"></ul>");
+      ac = this;
+      ul.css({
+        display: "block",
+        right: 0
+      });
+      for (key in matches) {
+        $("<li role=\"presentation\"></li>").html($("<a href=\"#\" role=\"menuitem\"></a>").html(matches[key]).click(function(e) {
+          return e.preventDefault();
+        })).mousedown(function() {
+          return ac.select(this);
+        }).mouseover(function() {
+          return ac.highlight(this);
+        }).mouseout(function() {
+          return ac.unhighlight(this);
+        }).data("autocompleteValue", key).appendTo(ul);
+      }
+      if (this.popup) {
+        if (ul.children().length) {
+          $(this.popup).empty().append(ul).show();
+          return $(this.ariaLive).html(Drupal.t("Autocomplete popup"));
+        } else {
+          $(this.popup).css({
+            visibility: "hidden"
+          });
+          return this.hidePopup();
+        }
+      }
+    };
+    return Drupal.jsAC.prototype.setStatus = function(status) {
+      var $throbber, fontAwesome, iconSpin, throbbingClass;
+      fontAwesome = Drupal.settings.kalatheme.fontawesome ? true : false;
+      iconSpin = fontAwesome ? 'fa-spin' : 'glyphicon-spin';
+      $throbber = $(".fa-spin, .glyphicon-refresh, .autocomplete-throbber", $("#" + this.input.id).parent()).first();
+      throbbingClass = ($throbber.is(".autocomplete-throbber") ? "throbbing" : iconSpin);
+      switch (status) {
+        case "begin":
+          $throbber.addClass(throbbingClass);
+          return $(this.ariaLive).html(Drupal.t("Searching for matches..."));
+        case "cancel":
+        case "error":
+        case "found":
+          return $throbber.removeClass(throbbingClass);
+      }
+    };
+  })(jQuery);
+
+}).call(this);
+
+//# sourceMappingURL=kalathemeAutocomplete.js.map
+
+
+/**
+* @file
 * Overrides for CTools modal.
 * See ctools/js/modal.js
  */
