@@ -51,10 +51,9 @@
       @progress.object = progressBar
       $(@element).after @progress.element
     else if @progress.type is "throbber"
-      iconClasses = "glyphicon glyphicon-refresh glyphicon-spin"
-      if Drupal.settings.kalatheme.fontawesome then iconClasses is "fa fa-refresh fa-spin"
+      iconClasses = if Drupal.settings.kalatheme.fontawesome is true then "fa fa-refresh fa-spin" else "glyphicon glyphicon-refresh glyphicon-spin"
       markup = "<div class=\"ajax-progress ajax-progress-throbber\">"
-      markup += "<span class=\"#{iconClasses}\"></span><span class=\"sr-only\">Loading</span></div>"
+      markup += "<span class=\"#{iconClasses}\" aria-hidden=\"true\"></span><span class=\"sr-only\">Loading</span></div>"
       @progress.element = $(markup)
       # If element is an input type, append after.
       if $(@element).is("input")

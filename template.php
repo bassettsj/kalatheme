@@ -67,6 +67,7 @@ function _kalatheme_remove_by_key(array $keys, array $target){
       unset($target[$key]);
     }
   }
+  return $target;
 }
 
 /**
@@ -74,7 +75,7 @@ function _kalatheme_remove_by_key(array $keys, array $target){
  */
 function kalatheme_js_alter(&$javascript){
   $excludes = array('misc/progress.js');
-  _kalatheme_remove_by_key($excludes, $javascript);
+  $javascript = _kalatheme_remove_by_key($excludes, $javascript);
 }
 
 /**
@@ -91,7 +92,7 @@ function kalatheme_css_alter(&$css) {
     $panopoly_magic_path . '/css/panopoly-modal.css',
     'modules/system/system.menus.css'
   );
-  _kalatheme_remove_by_key($excludes, $css);
+  $css = _kalatheme_remove_by_key($excludes, $css);
 
 }
 
