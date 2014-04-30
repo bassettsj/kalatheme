@@ -26,8 +26,9 @@ module.exports =
   ]
   css: [
     'sass:dist'
-    'csscss:theme'
     'autoprefixer:theme'
+    'csscss:theme'
+    'csslint:theme'
     'cssmin:theme'
   ]
   develop: [
