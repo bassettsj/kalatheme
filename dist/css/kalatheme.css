@@ -370,28 +370,28 @@ ul.panels-ipe-linkbar > li a {
 /**
  * Navbar Styling
  */
-a#navbar-link-admin-panopoly:before {
+#navbar-link-admin-panopoly:before {
+  background-image: url(../img/kalatheme-sprite.png);
+  background-position: 0px -60px;
+  width: 20px;
+  height: 20px;
+  margin-top: 9px; }
+
+#navbar-link-admin-panopoly.active:before {
   background-image: url(../img/kalatheme-sprite.png);
   background-position: 0px -40px;
   width: 20px;
   height: 20px;
   margin-top: 9px; }
 
-a#navbar-link-admin-panopoly.active:before {
-  background-image: url(../img/kalatheme-sprite.png);
-  background-position: 0px -40px;
-  width: 20px;
-  height: 20px;
-  margin-top: 9px; }
-
-a#navbar-link-admin-apps:before {
+#navbar-link-admin-apps:before {
   background-image: url(../img/kalatheme-sprite.png);
   background-position: 0px -20px;
   width: 20px;
   height: 20px;
   margin-top: 9px; }
 
-a#navbar-link-admin-apps.active:before {
+#navbar-link-admin-apps.active:before {
   background-image: url(../img/kalatheme-sprite.png);
   background-position: 0px 0px;
   width: 20px;
