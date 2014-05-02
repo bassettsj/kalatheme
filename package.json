@@ -8,7 +8,7 @@
   },
   "main": "template.php",
   "scripts": {
-    "test": "grunt tests"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
