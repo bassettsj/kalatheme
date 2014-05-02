@@ -79,22 +79,23 @@
       window.Drupal = {};
     }
 
-    /*
-    Attaches the autocomplete behavior to all required fields.
+    /**
+    *Attaches the autocomplete behavior to all required fields.
      */
     Drupal.behaviors.autocomplete = {
       attach: function(context, settings) {
         var acdb;
         acdb = [];
         return $("input.autocomplete", context).once("autocomplete", function() {
-          var $input, uri;
+          var $input, ariaLive, uri;
           uri = this.value;
           if (!acdb[uri]) {
             acdb[uri] = new Drupal.ACDB(uri);
           }
           $input = $("#" + this.id.substr(0, this.id.length - 13)).attr("autocomplete", "OFF").attr("aria-autocomplete", "list");
           $($input[0].form).submit(Drupal.autocompleteSubmit);
-          $input.after($("<span class=\"element-invisible\" aria-live=\"assertive\"></span>").attr("id", $input.attr("id") + "-autocomplete-aria-live"));
+          ariaLive = $("<span class=\"element-invisible\" aria-live=\"assertive\"/>").attr("id", "" + ($input.attr("id")) + "-autocomplete-aria-live");
+          $input.after;
           $input.parent().parent().attr("role", "application");
           return new Drupal.jsAC($input, acdb[uri]);
         });
@@ -167,7 +168,7 @@
         right: 0
       });
       for (key in matches) {
-        $("<li role=\"presentation\"></li>").html($("<a href=\"#\" role=\"menuitem\"></a>").html(matches[key]).click(function(e) {
+        $("<li role=\"presentation\"></li>").html($("<a href=\"#\" role=\"menuitem\"/>").html(matches[key]).click(function(e) {
           return e.preventDefault();
         })).mousedown(function() {
           return ac.select(this);

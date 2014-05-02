@@ -9,17 +9,21 @@
 (($) ->
 
   window.Drupal ?= {}
-  ###
-  Attaches the autocomplete behavior to all required fields.
+  ###*
+  *Attaches the autocomplete behavior to all required fields.
   ###
   Drupal.behaviors.autocomplete = attach: (context, settings) ->
     acdb = []
     $("input.autocomplete", context).once "autocomplete", ->
       uri = @value
       acdb[uri] = new Drupal.ACDB(uri)  unless acdb[uri]
-      $input = $("#" + @id.substr(0, @id.length - 13)).attr("autocomplete", "OFF").attr("aria-autocomplete", "list")
+      $input = $("#" + @id.substr(0, @id.length - 13))
+      .attr("autocomplete", "OFF")
+      .attr("aria-autocomplete", "list")
       $($input[0].form).submit Drupal.autocompleteSubmit
-      $input.after $("<span class=\"element-invisible\" aria-live=\"assertive\"></span>").attr("id", $input.attr("id") + "-autocomplete-aria-live")
+      ariaLive = $("<span class=\"element-invisible\" aria-live=\"assertive\"/>")
+      .attr("id", "#{$input.attr("id")}-autocomplete-aria-live")
+      $input.after
       $input.parent().parent().attr "role", "application"
       new Drupal.jsAC($input, acdb[uri])
 
@@ -94,7 +98,9 @@
       right: 0
 
     for key of matches
-      $("<li role=\"presentation\"></li>").html($("<a href=\"#\" role=\"menuitem\"></a>").html(matches[key]).click((e) ->
+      $("<li role=\"presentation\"></li>")
+      .html($("<a href=\"#\" role=\"menuitem\"/>")
+      .html(matches[key]).click((e) ->
         e.preventDefault()
       )).mousedown(->
         ac.select this
@@ -116,7 +122,10 @@
   Drupal.jsAC::setStatus = (status) ->
     fontAwesome = if Drupal.settings.kalatheme.fontawesome then true else false
     iconSpin = if fontAwesome then 'fa-spin' else 'glyphicon-spin'
-    $throbber = $(".fa-refresh, .glyphicon-refresh, .autocomplete-throbber", $("#" + @input.id).parent()).first()
+    $throbber = $(
+      ".fa-refresh, .glyphicon-refresh, .autocomplete-throbber",
+      $("#" + @input.id).parent()
+      ).first()
     throbbingClass = (if $throbber.is(".autocomplete-throbber") then "throbbing" else iconSpin)
     switch status
       when "begin"

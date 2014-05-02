@@ -1,8 +1,10 @@
-module.exports =
+module.exports = () ->
+  baseurl = 'https://raw.githubusercontent.com/drupalprojects/drupal/7.x'
   drupaljs:
     src: [
-      'https://raw.githubusercontent.com/drupalprojects/drupal/7.x/misc/drupal.js'
-      'https://raw.githubusercontent.com/drupalprojects/drupal/7.x/misc/jquery.once.js'
-      'https://raw.githubusercontent.com/drupalprojects/drupal/7.x/misc/ajax.js'
+      baseurl + '/misc/drupal.js'
+      baseurl + '/misc/jquery.once.js'
+      baseurl + '/misc/ajax.js'
+      baseurl + '/misc/autocomplete.js'
       ]
     dest: './temp/drupaljs'
