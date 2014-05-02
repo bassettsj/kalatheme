@@ -4,8 +4,9 @@ module.exports =
     'clean:dist'
     'img'
     'js'
-    'tests'
     'css'
+    'curl-dir:drupaljs'
+    'tests'
   ]
   js: [
     'clean:tempjs'
@@ -15,7 +16,6 @@ module.exports =
     'uglify:js'
   ]
   tests: [
-    'curl-dir:drupaljs'
     'coffeelint:tests'
     'coffee:specs'
     'jasmine:specs'
@@ -27,8 +27,8 @@ module.exports =
   css: [
     'sass:dist'
     'autoprefixer:theme'
-    'csscss:theme'
-    'csslint:theme'
+    # 'csscss:theme'
+    # 'csslint:theme'
     'cssmin:theme'
   ]
   develop: [
