@@ -9,5 +9,4 @@ install:
   - gem install bundler
   - bundle
   - bower install
-  - bower list --paths
-  - grunt
+  - grunt --force
