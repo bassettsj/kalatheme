@@ -633,24 +633,21 @@ fieldset .panel-body {
   margin-bottom: 10px; }
 
 /* Vertical Tabs */
-div.vertical-tabs {
+.vertical-tabs {
   border: none;
   border: 1px solid #DDD;
   outline: none;
-  -o-border-radius: 4px;
   border-radius: 4px; }
 
-div.vertical-tabs ul.vertical-tabs-list {
+.vertical-tabs ul.vertical-tabs-list {
   border: none;
   margin-top: 20px;
   margin-bottom: 20px;
   outline: none; }
 
-div.vertical-tabs ul.vertical-tabs-list li {
+.vertical-tabs .vertical-tabs-list li {
   border: none;
   background: none;
-  outline: none !important;
-  -o-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
   border: 1px solid;
   border-color: #fff #ddd #fff #fff; }
@@ -659,8 +656,6 @@ div.vertical-tabs ul.vertical-tabs-list li.selected {
   border-color: #ddd #fff #ddd #ddd; }
 
 div.vertical-tabs ul.vertical-tabs-list li a {
-  outline: none !important;
-  -o-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px; }
 
 div.vertical-tabs .vertical-tabs-panes {
@@ -708,12 +703,25 @@ html.js fieldset.collapsed {
  * Box Sizing Resets
  * Provides a basic reset class as well.
  */
-.draggable a.tabledrag-handle .handle,
+.draggable a.tabledrag-handle .handle, .draggable a.tabledrag-handle .handle:before, .draggable a.tabledrag-handle .handle:after,
 .panopoly-spotlight-label,
+.panopoly-spotlight-label:before,
+.panopoly-spotlight-label:after,
 .mceEditor,
+.mceEditor:before,
+.mceEditor:after,
 #pane-library table,
+#pane-library table:before,
+#pane-library table:after,
 .box-sizing-content-box,
-.mceToolbar {
+.box-sizing-content-box:before,
+.box-sizing-content-box:after,
+.mceToolbar,
+.mceToolbar:before,
+.mceToolbar:after,
+.mceButton,
+.mceButton:before,
+.mceButton:after {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box; }
