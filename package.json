@@ -22,7 +22,8 @@
   "browserify": {
     "transform": [
       "coffeeify",
-      "browserify-shim"
+      "browserify-shim",
+      "html2js-browserify"
     ]
   },
   "browserify-shim": {
@@ -58,6 +59,7 @@
     "browserify": "^4.1.9",
     "grunt-browserify": "^2.1.0",
     "coffeeify": "^0.6.0",
-    "browserify-shim": "^3.5.0"
+    "browserify-shim": "^3.5.0",
+    "html2js-browserify": "0.0.2"
   }
 }
