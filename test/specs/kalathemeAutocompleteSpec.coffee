@@ -1,7 +1,7 @@
 module.exports = ->
   $ = require('jquery')
-  require('../../src/kalathemeAutocomplete.coffee')
-  describe 'kalathemeAutocomplete', ->
+  require('../../src/autocomplete/index.coffee')
+  describe 'autocomplete module', ->
     testInput = null
     testSandbox = null
     testHidden = null
@@ -20,7 +20,7 @@ module.exports = ->
       )
       _testObjs.testAutocomplete = testSandbox
       appendSetFixtures testSandbox
-    describe 'the behaviour it modifies in core',  ->
+    describe 'it Attaches it to the Drupal.behviours object',  ->
 
 
       it 'attaches to Drupal behaviours and runs on load', ->

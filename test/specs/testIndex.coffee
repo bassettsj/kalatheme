@@ -8,4 +8,4 @@ Require each spec and then in each spec require what you need there.
 
 require('./dropdownExpandSpec.coffee')()
 require('./kalathemeProgressSpec.coffee')()
-# require('./kalathemeAjaxSpec.coffee')()
+require('./kalathemeAutocompleteSpec.coffee')()

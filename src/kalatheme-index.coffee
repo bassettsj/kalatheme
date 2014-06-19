@@ -1,5 +1,5 @@
 require('./kalathemeAjax.coffee')
-require('./kalathemeAutocomplete.coffee')
+require('./autocomplete/index.coffee')
 require('./kalathemeModal.coffee')
 require('./kalathemeProgress.coffee')
 require('./dropdownExpand.coffee')()
