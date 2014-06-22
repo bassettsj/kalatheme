@@ -1,0 +1,10 @@
+name = Kalatheme Tests
+description = Provides theme tests for any errors.
+core = 7.x
+package = Views
+dependencies[] = views
+dependencies[] = panels
+dependencies[] = kalatheme
+project = kalatheme_test
+files[] = kalatheme_test.module
+files[] = kalatheme_test.test
