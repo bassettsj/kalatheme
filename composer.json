@@ -1,0 +1,13 @@
+{
+    "name": "kalamuna/kalatheme",
+    "require-dev": {
+        "drush/drush": "7.0.0"
+    },
+    "license": "BDS-2",
+    "authors": [
+        {
+            "name": "Steven Bassett",
+            "email": "steven@kalamuna.com"
+        }
+    ]
+}

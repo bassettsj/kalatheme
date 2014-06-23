@@ -22,3 +22,5 @@ temp
 dist
 build
 test/tests.js
+
+/vendor/
